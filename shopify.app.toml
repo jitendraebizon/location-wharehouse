@@ -1,0 +1,32 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "7e34a2f74fc8bacf56cd16b7155b9362"
+name = "myapps"
+application_url = "https://discusses-catalogs-persons-consequence.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+
+[webhooks]
+api_version = "2026-04"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/scopes_update" ]
+  uri = "/webhooks/app/scopes_update"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_inventory,read_locations,write_products,write_app_proxy"
+
+[auth]
+redirect_urls = [ "https://discusses-catalogs-persons-consequence.trycloudflare.com/api/auth" ]
+
+[app_proxy]
+url = "https://discusses-catalogs-persons-consequence.trycloudflare.com/apps/inventory"
+subpath = "inventory"
+prefix = "apps"
